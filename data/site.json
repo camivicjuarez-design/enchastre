@@ -14,10 +14,10 @@
     "catalogTitle": "CATÁLOGO"
   },
   "colors": {
-    "violet": "#3A3BFF",
-    "orange": "#FF5C1A",
-    "mint": "#FF5ACD",
-    "cream": "#F5F0E6",
+    "violet": "#e2a9f1",
+    "orange": "#ff8a00",
+    "mint": "#fabd00",
+    "cream": "#ffffff",
     "black": "#111111"
   },
   "fonts": {
