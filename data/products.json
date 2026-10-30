@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": "bardo",
+      "name": "Bardo",
+      "price": "20300",
+      "image": "",
+      "alt": "Lentes Bardo — Enchastre.bba"
+    },
+    {
+      "id": "fino",
+      "name": "Fino",
+      "price": "20300",
+      "image": "",
+      "alt": "Lentes Fino — Enchastre.bba"
+    },
+    {
+      "id": "oro-negro",
+      "name": "Oro Negro",
+      "price": "19500",
+      "image": "",
+      "alt": "Lentes Oro Negro — Enchastre.bba"
+    },
+    {
+      "id": "medianoche",
+      "name": "Medianoche",
+      "price": "19500",
+      "image": "",
+      "alt": "Lentes Medianoche — Enchastre.bba"
+    },
+    {
+      "id": "destello",
+      "name": "Destello",
+      "price": "22900",
+      "image": "",
+      "alt": "Lentes Destello — Enchastre.bba"
+    },
+    {
+      "id": "caos",
+      "name": "Caos",
+      "price": "22900",
+      "image": "",
+      "alt": "Lentes Caos — Enchastre.bba"
+    },
+    {
+      "id": "vicio",
+      "name": "Vicio",
+      "price": "22900",
+      "image": "",
+      "alt": "Lentes Vicio — Enchastre.bba"
+    },
+    {
+      "id": "trance",
+      "name": "Trance",
+      "price": "22900",
+      "image": "",
+      "alt": "Lentes Trance — Enchastre.bba"
+    },
+    {
+      "id": "unico",
+      "name": "Único",
+      "price": "23250",
+      "image": "",
+      "alt": "Lentes Único — Enchastre.bba"
+    },
+    {
+      "id": "bravo",
+      "name": "Bravo",
+      "price": "23250",
+      "image": "",
+      "alt": "Lentes Bravo — Enchastre.bba"
+    },
+    {
+      "id": "autentico",
+      "name": "Auténtico",
+      "price": "24500",
+      "image": "",
+      "alt": "Lentes Auténtico — Enchastre.bba"
+    },
+    {
+      "id": "esencia",
+      "name": "Esencia",
+      "price": "24500",
+      "image": "",
+      "alt": "Lentes Esencia — Enchastre.bba"
+    }
+  ]
+}
