@@ -5,8 +5,8 @@ backend:
 media_library:
   name: cloudinary
   config:
-    cloud_name: TU_CLOUD_NAME
-    api_key: TU_API_KEY
+    cloud_name: pwxozdjc
+    api_key: 895916722483662
 
 publish_mode: simple
 locale: es
