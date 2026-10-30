@@ -1,0 +1,28 @@
+{
+  "instagram": "",
+  "texts": {
+    "brandMark": "LENTES / ENCHASTRE.BBA",
+    "heroLabel": "LENTES / ENCHASTRE.BBA",
+    "heroTitle": "ENCHASTRE",
+    "heroTagline": "Lentes que van con vos.",
+    "btnContact": "Consultá por Instagram",
+    "identityLabel": "UNA FORMA DE MIRAR",
+    "identityHeading": "PROTECCIÓN UV CERTIFICADA",
+    "identityText": "Elegí los marcos que van con vos y hacé de cada mirada algo propio.",
+    "catalogTitle": "CATÁLOGO",
+    "closingText": "Y ACORDARTE, VOS TENÉS EL ESTILO. ENCHASTRE SOLAMENTE EL ACCESORIO.",
+    "footerText": "© 2026 Enchastre.bba — Lentes que van con vos"
+  },
+  "colors": {
+    "violet": "#3A3BFF",
+    "orange": "#FF5C1A",
+    "mint": "#FF5ACD",
+    "cream": "#F5F0E6",
+    "black": "#111111"
+  },
+  "fonts": {
+    "display": "Barlow Condensed",
+    "body": "DM Sans"
+  },
+  "brandImage": ""
+}
