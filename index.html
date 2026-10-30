@@ -7,16 +7,15 @@
   <meta name="description" content="Enchastre.bba — Lentes de sol con protección UV certificada." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link id="google-fonts" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
 /* =========================================================
    ENCHASTRE.BBA — Design system
-   Default colors match the blue + pink from the current design
    ========================================================= */
 :root {
-  --violet: #3A3BFF;          /* azul fuerte de la imagen */
+  --violet: #3A3BFF;
   --orange: #FF5C1A;
-  --mint: #FF5ACD;            /* rosa / acento de la imagen */
+  --mint: #FF5ACD;
   --cream: #F5F0E6;
   --white: #FFFFFF;
   --black: #111111;
@@ -65,13 +64,11 @@ button, input, select, textarea { font-family: inherit; }
   font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.04em; text-transform: uppercase;
 }
-.main-nav a:hover, .admin-link:hover { text-decoration: underline; }
+.main-nav a:hover { text-decoration: underline; }
 .admin-link {
-  background: none; border: none; cursor: pointer;
-  font-size: inherit; font-weight: inherit; letter-spacing: inherit;
-  text-transform: inherit; color: var(--black); opacity: 0.55; padding: 0;
+  opacity: 0.55;
 }
-.admin-link:hover { opacity: 1; }
+.admin-link:hover { opacity: 1; text-decoration: underline; }
 
 /* BUTTONS */
 .btn {
@@ -248,76 +245,10 @@ button, input, select, textarea { font-family: inherit; }
   font-size: 0.75rem; letter-spacing: 0.04em;
 }
 
-/* ADMIN */
-.admin-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-  z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem;
+/* LOADING STATE */
+.loading-msg {
+  text-align: center; padding: 4rem 1rem; color: #666;
 }
-.admin-overlay[hidden] { display: none !important; }
-.admin-panel {
-  background: var(--white); border: var(--border);
-  width: min(560px, 100%); max-height: 92vh; overflow-y: auto;
-  box-shadow: 12px 12px 0 var(--black);
-}
-.admin-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 1.25rem; border-bottom: var(--border); background: var(--cream);
-}
-.admin-header h2 {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: 1.35rem; text-transform: uppercase;
-}
-.admin-close {
-  background: none; border: none; font-size: 1.75rem;
-  line-height: 1; cursor: pointer; padding: 0 0.25rem;
-}
-.admin-login, .admin-dashboard { padding: 1.25rem 1.25rem 1.5rem; }
-.admin-login p { margin-bottom: 1rem; font-size: 0.9rem; }
-.admin-login form { display: flex; flex-direction: column; gap: 0.75rem; }
-.admin-login label, .admin-dashboard label {
-  font-size: 0.72rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.04em;
-}
-.admin-login input, .admin-dashboard input,
-.admin-dashboard select, .admin-dashboard textarea {
-  border: var(--border); padding: 0.55rem 0.7rem;
-  font-size: 0.95rem; background: var(--white); width: 100%;
-}
-.admin-dashboard textarea { resize: vertical; }
-.admin-note { margin-top: 1.1rem; font-size: 0.75rem; color: #666; line-height: 1.4; }
-.error { color: #c00; font-size: 0.85rem; margin-top: 0.5rem; }
-
-/* Tabs */
-.admin-tabs {
-  display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem;
-  border-bottom: 1px solid #ddd; padding-bottom: 0.75rem;
-}
-.tab-btn {
-  background: transparent; border: 1px solid #ccc; padding: 0.35rem 0.65rem;
-  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-  cursor: pointer; border-radius: 0;
-}
-.tab-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-.tab-desc { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
-
-.form-row { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.85rem; }
-.color-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.color-grid input[type="color"] {
-  width: 100%; height: 42px; padding: 0.2rem; cursor: pointer;
-}
-.product-select-row { margin-bottom: 1.1rem; }
-.preview-box {
-  margin-top: 0.5rem; border: 1px dashed #bbb; aspect-ratio: 1;
-  max-width: 160px; display: flex; align-items: center; justify-content: center;
-  background: #fafafa; overflow: hidden;
-}
-.preview-box.brand-preview { max-width: 200px; aspect-ratio: 3/4; }
-.preview-box img { width: 100%; height: 100%; object-fit: contain; padding: 0.4rem; }
-.admin-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
-.status { margin-top: 0.9rem; font-size: 0.85rem; font-weight: 600; color: #0a7; }
-.logout { margin-top: 1.25rem; width: 100%; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -336,14 +267,12 @@ button, input, select, textarea { font-family: inherit; }
   .closing-right { min-height: 200px; }
   .header-inner { padding: 0.65rem 1rem; }
   .main-nav { gap: 0.85rem; font-size: 0.72rem; }
-  .color-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 420px) {
   .product-grid { grid-template-columns: 1fr; max-width: 320px; }
   .hero-title { font-size: 3.4rem; }
   .catalog-title { font-size: 2.4rem; }
 }
-
   </style>
 </head>
 <body>
@@ -353,7 +282,7 @@ button, input, select, textarea { font-family: inherit; }
       <nav class="main-nav" aria-label="Navegación principal">
         <a href="#catalogo">Catálogo</a>
         <a href="#contacto">Contacto</a>
-        <button type="button" id="admin-trigger" class="admin-link" aria-label="Acceso administración">Admin</button>
+        <a href="/admin/" class="admin-link" aria-label="Panel de administración">Admin</a>
       </nav>
     </div>
   </header>
@@ -365,12 +294,17 @@ button, input, select, textarea { font-family: inherit; }
         <p class="hero-label" data-text="heroLabel">LENTES / ENCHASTRE.BBA</p>
         <h1 class="hero-title" data-text="heroTitle">ENCHASTRE</h1>
         <p class="hero-tagline" data-text="heroTagline">Lentes que van con vos.</p>
-        <a href="#" class="btn btn-mint" data-contact data-text="btnContact">Consultá por Instagram</a>
+        <a href="#contacto" class="btn btn-mint" data-contact data-text="btnContact">Consultá por Instagram</a>
       </div>
       <div class="hero-right">
         <div class="hero-circle" aria-hidden="true"></div>
         <div class="poster">
-          <div class="poster-inner" id="poster-inner"></div>
+          <div class="poster-inner" id="poster-inner">
+            <div class="poster-placeholder">
+              <span>Área para imagen de marca</span>
+              <small>Reemplazá este espacio más adelante</small>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -397,14 +331,16 @@ button, input, select, textarea { font-family: inherit; }
         <h2 class="catalog-title" data-text="catalogTitle">CATÁLOGO</h2>
         <span class="catalog-arrow" aria-hidden="true">↘</span>
       </div>
-      <div class="product-grid" id="product-grid"></div>
+      <div class="product-grid" id="product-grid">
+        <p class="loading-msg">Cargando catálogo…</p>
+      </div>
     </section>
 
     <!-- CIERRE -->
     <section id="contacto" class="closing">
       <div class="closing-left">
         <p class="closing-text" data-text="closingText">Y ACORDARTE, VOS TENÉS EL ESTILO. ENCHASTRE SOLAMENTE EL ACCESORIO.</p>
-        <a href="#" class="btn btn-mint" data-contact data-text="btnContact">Consultá por Instagram</a>
+        <a href="#contacto" class="btn btn-mint" data-contact data-text="btnContact">Consultá por Instagram</a>
       </div>
       <div class="closing-right">
         <div class="geo-circle" aria-hidden="true"></div>
@@ -417,647 +353,167 @@ button, input, select, textarea { font-family: inherit; }
     <p id="footer-text" data-text="footerText">© 2026 Enchastre.bba — Lentes que van con vos</p>
   </footer>
 
-  <!-- ADMIN -->
-  <div id="admin-overlay" class="admin-overlay" hidden>
-    <div class="admin-panel" role="dialog" aria-labelledby="admin-title" aria-modal="true">
-      <header class="admin-header">
-        <h2 id="admin-title">Panel de administración</h2>
-        <button type="button" id="admin-close" class="admin-close" aria-label="Cerrar">×</button>
-      </header>
-
-      <div id="admin-login" class="admin-login">
-        <p>Acceso restringido. Ingresá la contraseña de administrador.</p>
-        <form id="login-form">
-          <label for="admin-password">Contraseña</label>
-          <input type="password" id="admin-password" autocomplete="current-password" required />
-          <button type="submit" class="btn btn-mint">Ingresar</button>
-          <p id="login-error" class="error" hidden>Contraseña incorrecta</p>
-        </form>
-        <p class="admin-note">Contraseña por defecto: <strong>enchastre2024</strong></p>
-      </div>
-
-      <div id="admin-dashboard" class="admin-dashboard" hidden>
-        <div class="admin-tabs">
-          <button type="button" class="tab-btn active" data-tab="contact">Contacto</button>
-          <button type="button" class="tab-btn" data-tab="brand">Imagen marca</button>
-          <button type="button" class="tab-btn" data-tab="texts">Textos</button>
-          <button type="button" class="tab-btn" data-tab="colors">Colores</button>
-          <button type="button" class="tab-btn" data-tab="products">Productos</button>
-        </div>
-
-        <!-- CONTACTO -->
-        <div class="tab-content active" id="tab-contact">
-          <h3>Instagram (único canal)</h3>
-          <p class="tab-desc">Todas las consultas se dirigen exclusivamente a Instagram.</p>
-          <div class="form-row">
-            <label for="cfg-instagram">Usuario o URL de Instagram</label>
-            <input type="text" id="cfg-instagram" placeholder="@enchastre.bba o https://instagram.com/..." />
-          </div>
-          <button type="button" id="save-config" class="btn btn-mint">Guardar Instagram</button>
-        </div>
-
-        <!-- IMAGEN DE MARCA -->
-        <div class="tab-content" id="tab-brand">
-          <h3>Imagen de marca (póster)</h3>
-          <p class="tab-desc">Esta imagen aparece dentro del póster de la portada.</p>
-          <div class="form-row">
-            <label for="brand-image">Subir imagen</label>
-            <input type="file" id="brand-image" accept="image/*" />
-          </div>
-          <div class="preview-box brand-preview">
-            <img id="brand-preview" alt="Vista previa de marca" hidden />
-            <span id="brand-placeholder">Sin imagen de marca</span>
-          </div>
-          <div class="admin-actions" style="margin-top:1rem">
-            <button type="button" id="save-brand" class="btn btn-mint">Guardar imagen</button>
-            <button type="button" id="remove-brand" class="btn btn-outline">Eliminar imagen</button>
-          </div>
-        </div>
-
-        <!-- TEXTOS -->
-        <div class="tab-content" id="tab-texts">
-          <h3>Textos editables</h3>
-          <div class="form-row">
-            <label for="txt-brandMark">Marca superior</label>
-            <input type="text" id="txt-brandMark" />
-          </div>
-          <div class="form-row">
-            <label for="txt-heroTitle">Título principal</label>
-            <input type="text" id="txt-heroTitle" />
-          </div>
-          <div class="form-row">
-            <label for="txt-heroTagline">Eslogan (portada)</label>
-            <input type="text" id="txt-heroTagline" />
-          </div>
-          <div class="form-row">
-            <label for="txt-btnContact">Texto del botón de contacto</label>
-            <input type="text" id="txt-btnContact" />
-          </div>
-          <div class="form-row">
-            <label for="txt-identityLabel">Etiqueta identidad</label>
-            <input type="text" id="txt-identityLabel" />
-          </div>
-          <div class="form-row">
-            <label for="txt-identityHeading">Título identidad</label>
-            <input type="text" id="txt-identityHeading" />
-          </div>
-          <div class="form-row">
-            <label for="txt-identityText">Texto naranja</label>
-            <textarea id="txt-identityText" rows="2"></textarea>
-          </div>
-          <div class="form-row">
-            <label for="txt-catalogTitle">Título catálogo</label>
-            <input type="text" id="txt-catalogTitle" />
-          </div>
-          <div class="form-row">
-            <label for="txt-closingText">Texto de cierre</label>
-            <textarea id="txt-closingText" rows="3"></textarea>
-          </div>
-          <div class="form-row">
-            <label for="txt-footerText">Texto completo del footer</label>
-            <input type="text" id="txt-footerText" placeholder="© 2026 Enchastre.bba — Lentes que van con vos" />
-          </div>
-          <button type="button" id="save-texts" class="btn btn-mint">Guardar textos</button>
-        </div>
-
-        <!-- COLORES -->
-        <div class="tab-content" id="tab-colors">
-          <h3>Colores de la identidad</h3>
-          <div class="color-grid">
-            <div class="form-row">
-              <label for="clr-violet">Azul / panel derecho</label>
-              <input type="color" id="clr-violet" />
-            </div>
-            <div class="form-row">
-              <label for="clr-orange">Naranja</label>
-              <input type="color" id="clr-orange" />
-            </div>
-            <div class="form-row">
-              <label for="clr-mint">Rosa / acento</label>
-              <input type="color" id="clr-mint" />
-            </div>
-            <div class="form-row">
-              <label for="clr-cream">Crema / fondo</label>
-              <input type="color" id="clr-cream" />
-            </div>
-            <div class="form-row">
-              <label for="clr-black">Negro (textos y bordes)</label>
-              <input type="color" id="clr-black" />
-            </div>
-          </div>
-          <div class="admin-actions" style="margin-top:1rem">
-            <button type="button" id="save-colors" class="btn btn-mint">Guardar colores</button>
-            <button type="button" id="reset-colors" class="btn btn-outline">Restaurar originales</button>
-          </div>
-        </div>
-
-        <!-- PRODUCTOS -->
-        <div class="tab-content" id="tab-products">
-          <h3>Productos</h3>
-          <div class="product-select-row">
-            <label for="product-select">Seleccionar modelo</label>
-            <select id="product-select"></select>
-          </div>
-          <div class="form-row">
-            <label for="edit-name">Nombre</label>
-            <input type="text" id="edit-name" />
-          </div>
-          <div class="form-row">
-            <label for="edit-price">Precio (sin $)</label>
-            <input type="text" id="edit-price" placeholder="20300" />
-          </div>
-          <div class="form-row">
-            <label for="edit-image">Fotografía</label>
-            <input type="file" id="edit-image" accept="image/*" />
-            <div class="preview-box">
-              <img id="image-preview" alt="Vista previa" hidden />
-              <span id="preview-placeholder">Sin imagen</span>
-            </div>
-          </div>
-          <div class="admin-actions">
-            <button type="button" id="save-product" class="btn btn-mint">Guardar cambios</button>
-            <button type="button" id="remove-image" class="btn btn-outline">Eliminar foto</button>
-          </div>
-        </div>
-
-        <p id="save-status" class="status" hidden></p>
-        <button type="button" id="logout-btn" class="btn btn-outline logout">Cerrar sesión</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-/**
- * CONFIGURACIÓN INICIAL
- */
-window.ENCHASTRE_CONFIG = {
-  // Instagram (único canal de contacto)
-  instagram: "",          // ej: "enchastre.bba"  o  "https://www.instagram.com/enchastre.bba/"
+  (function () {
+    "use strict";
 
-  // Contraseña del panel de administración
-  adminPassword: "enchastre2024"
-};
+    // Fuentes de Google disponibles
+    const FONT_URLS = {
+      "Barlow Condensed": "Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800",
+      "Oswald": "Oswald:wght@500;600;700",
+      "Bebas Neue": "Bebas+Neue",
+      "Anton": "Anton",
+      "Archivo Black": "Archivo+Black",
+      "DM Sans": "DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400",
+      "Inter": "Inter:wght@400;500;600;700",
+      "Poppins": "Poppins:wght@400;500;600;700",
+      "Nunito Sans": "Nunito+Sans:wght@400;600;700",
+      "Work Sans": "Work+Sans:wght@400;500;600;700"
+    };
 
+    function formatPrice(value) {
+      const num = String(value).replace(/\D/g, "");
+      return "$" + (num ? Number(num).toLocaleString("es-AR") : "0");
+    }
 
-/**
- * Datos iniciales de los 12 productos (orden obligatorio).
- */
-window.DEFAULT_PRODUCTS = [
-  { id: "bardo",      name: "Bardo",      price: "20300" },
-  { id: "fino",       name: "Fino",       price: "20300" },
-  { id: "oro-negro",  name: "Oro Negro",  price: "19500" },
-  { id: "medianoche", name: "Medianoche", price: "19500" },
-  { id: "destello",   name: "Destello",   price: "22900" },
-  { id: "caos",       name: "Caos",       price: "22900" },
-  { id: "vicio",      name: "Vicio",      price: "22900" },
-  { id: "trance",     name: "Trance",     price: "22900" },
-  { id: "unico",      name: "Único",      price: "23250" },
-  { id: "bravo",      name: "Bravo",      price: "23250" },
-  { id: "autentico",  name: "Auténtico",  price: "24500" },
-  { id: "esencia",    name: "Esencia",    price: "24500" }
-];
+    function buildInstagramUrl(instagram) {
+      if (!instagram) return "#contacto";
+      if (instagram.startsWith("http")) return instagram;
+      const user = instagram.replace(/^@/, "").trim();
+      return user ? `https://www.instagram.com/${user}/` : "#contacto";
+    }
 
-
-(function () {
-  "use strict";
-
-  const STORAGE = {
-    products: "enchastre_products_v4",
-    texts: "enchastre_texts_v4",
-    colors: "enchastre_colors_v4",
-    config: "enchastre_config_v4",
-    brand: "enchastre_brand_image_v4",
-    auth: "enchastre_admin_auth"
-  };
-
-  const DEFAULT_TEXTS = {
-    brandMark: "LENTES / ENCHASTRE.BBA",
-    heroLabel: "LENTES / ENCHASTRE.BBA",
-    heroTitle: "ENCHASTRE",
-    heroTagline: "Lentes que van con vos.",
-    btnContact: "Consultá por Instagram",
-    identityLabel: "UNA FORMA DE MIRAR",
-    identityHeading: "PROTECCIÓN UV CERTIFICADA",
-    identityText: "Elegí los marcos que van con vos y hacé de cada mirada algo propio.",
-    catalogTitle: "CATÁLOGO",
-    closingText: "Y ACORDARTE, VOS TENÉS EL ESTILO. ENCHASTRE SOLAMENTE EL ACCESORIO.",
-    footerText: "© 2026 Enchastre.bba — Lentes que van con vos"
-  };
-
-  // Colores por defecto = azul + rosa de la imagen actual
-  const DEFAULT_COLORS = {
-    violet: "#3A3BFF",
-    orange: "#FF5C1A",
-    mint: "#FF5ACD",
-    cream: "#F5F0E6",
-    black: "#111111"
-  };
-
-  // ---------- Storage helpers ----------
-  function load(key, fallback) {
-    try {
-      const raw = localStorage.getItem(key);
-      if (raw) return JSON.parse(raw);
-    } catch (_) {}
-    return fallback;
-  }
-  function save(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-  function loadRaw(key) {
-    try { return localStorage.getItem(key); } catch (_) { return null; }
-  }
-  function saveRaw(key, value) {
-    if (value === null || value === "") localStorage.removeItem(key);
-    else localStorage.setItem(key, value);
-  }
-
-  // ---------- Products ----------
-  function loadProducts() {
-    const saved = load(STORAGE.products, null);
-    if (saved) {
-      return window.DEFAULT_PRODUCTS.map((def) => {
-        const found = saved.find((p) => p.id === def.id);
-        return found ? { ...def, ...found } : { ...def };
+    function applyTexts(texts) {
+      document.querySelectorAll("[data-text]").forEach((el) => {
+        const key = el.getAttribute("data-text");
+        if (texts[key] !== undefined) el.textContent = texts[key];
       });
     }
-    return window.DEFAULT_PRODUCTS.map((p) => ({ ...p }));
-  }
 
-  function formatPrice(value) {
-    const num = String(value).replace(/\D/g, "");
-    return "$" + (num ? Number(num).toLocaleString("es-AR") : "0");
-  }
-
-  // ---------- Texts ----------
-  function loadTexts() {
-    return { ...DEFAULT_TEXTS, ...load(STORAGE.texts, {}) };
-  }
-  function applyTexts(texts) {
-    document.querySelectorAll("[data-text]").forEach((el) => {
-      const key = el.getAttribute("data-text");
-      if (texts[key] !== undefined) el.textContent = texts[key];
-    });
-  }
-
-  // ---------- Colors ----------
-  function loadColors() {
-    return { ...DEFAULT_COLORS, ...load(STORAGE.colors, {}) };
-  }
-  function applyColors(colors) {
-    const root = document.documentElement;
-    root.style.setProperty("--violet", colors.violet);
-    root.style.setProperty("--orange", colors.orange);
-    root.style.setProperty("--mint", colors.mint);
-    root.style.setProperty("--cream", colors.cream);
-    root.style.setProperty("--black", colors.black);
-  }
-
-  // ---------- Brand image ----------
-  function loadBrandImage() {
-    return loadRaw(STORAGE.brand);
-  }
-  function applyBrandImage() {
-    const container = document.getElementById("poster-inner");
-    if (!container) return;
-    const imgSrc = loadBrandImage();
-    if (imgSrc) {
-      container.innerHTML = `<img src="${imgSrc}" alt="Enchastre.bba — imagen de marca" />`;
-    } else {
-      container.innerHTML = `
-        <div class="poster-placeholder">
-          <span>Área para imagen de marca</span>
-          <small>Reemplazá este espacio más adelante</small>
-        </div>`;
+    function applyColors(colors) {
+      const root = document.documentElement;
+      if (colors.violet) root.style.setProperty("--violet", colors.violet);
+      if (colors.orange) root.style.setProperty("--orange", colors.orange);
+      if (colors.mint) root.style.setProperty("--mint", colors.mint);
+      if (colors.cream) root.style.setProperty("--cream", colors.cream);
+      if (colors.black) root.style.setProperty("--black", colors.black);
     }
-  }
 
-  // ---------- Instagram only ----------
-  function loadConfig() {
-    const saved = load(STORAGE.config, {});
-    return {
-      instagram: saved.instagram || window.ENCHASTRE_CONFIG.instagram || ""
-    };
-  }
-  function buildInstagramUrl(cfg) {
-    if (!cfg.instagram) return "#contacto";
-    if (cfg.instagram.startsWith("http")) return cfg.instagram;
-    const user = cfg.instagram.replace(/^@/, "").trim();
-    return user ? `https://www.instagram.com/${user}/` : "#contacto";
-  }
-  function updateContactButtons() {
-    const href = buildInstagramUrl(loadConfig());
-    document.querySelectorAll("[data-contact]").forEach((el) => {
-      el.setAttribute("href", href);
-      if (href.startsWith("http")) {
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener");
-      } else {
-        el.removeAttribute("target");
-        el.removeAttribute("rel");
+    function applyFonts(fonts) {
+      if (!fonts) return;
+      const display = fonts.display || "Barlow Condensed";
+      const body = fonts.body || "DM Sans";
+
+      document.documentElement.style.setProperty(
+        "--font-display",
+        `"${display}", "Arial Narrow", "Helvetica Condensed", sans-serif`
+      );
+      document.documentElement.style.setProperty(
+        "--font-body",
+        `"${body}", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`
+      );
+
+      // Cargar las fuentes de Google necesarias
+      const families = [];
+      if (FONT_URLS[display]) families.push(FONT_URLS[display]);
+      if (FONT_URLS[body] && body !== display) families.push(FONT_URLS[body]);
+      if (families.length) {
+        const link = document.getElementById("google-fonts");
+        link.href = "https://fonts.googleapis.com/css2?family=" + families.join("&family=") + "&display=swap";
       }
-    });
-  }
-
-  // ---------- Render catalog ----------
-  function renderCatalog() {
-    const grid = document.getElementById("product-grid");
-    if (!grid) return;
-    const products = loadProducts();
-    const href = buildInstagramUrl(loadConfig());
-    const btnText = loadTexts().btnContact || "Consultá por Instagram";
-
-    grid.innerHTML = products.map((p) => {
-      const photo = p.image
-        ? `<img src="${p.image}" alt="${p.name} — Enchastre.bba" loading="lazy" />`
-        : `<span class="photo-placeholder">Agregar fotografía</span>`;
-      return `
-        <article class="product-card" data-id="${p.id}">
-          <div class="product-photo">${photo}</div>
-          <div class="product-info">
-            <h3 class="product-name">${p.name}</h3>
-            <p class="product-price">${formatPrice(p.price)}</p>
-          </div>
-          <div class="product-action">
-            <a href="${href}" class="btn btn-mint" data-contact target="_blank" rel="noopener">${btnText}</a>
-          </div>
-        </article>`;
-    }).join("");
-  }
-
-  // ---------- Admin ----------
-  const overlay = document.getElementById("admin-overlay");
-  const loginView = document.getElementById("admin-login");
-  const dashView = document.getElementById("admin-dashboard");
-  const loginError = document.getElementById("login-error");
-  const productSelect = document.getElementById("product-select");
-  const editName = document.getElementById("edit-name");
-  const editPrice = document.getElementById("edit-price");
-  const editImage = document.getElementById("edit-image");
-  const imagePreview = document.getElementById("image-preview");
-  const previewPlaceholder = document.getElementById("preview-placeholder");
-  const saveStatus = document.getElementById("save-status");
-  const brandImageInput = document.getElementById("brand-image");
-  const brandPreview = document.getElementById("brand-preview");
-  const brandPlaceholder = document.getElementById("brand-placeholder");
-
-  let currentProducts = loadProducts();
-  let selectedId = null;
-  let pendingImage = null;
-  let pendingBrandImage = null;
-
-  function isAuth() { return sessionStorage.getItem(STORAGE.auth) === "1"; }
-  function setAuth(v) { v ? sessionStorage.setItem(STORAGE.auth, "1") : sessionStorage.removeItem(STORAGE.auth); }
-
-  function showStatus(msg) {
-    saveStatus.textContent = msg;
-    saveStatus.hidden = false;
-    setTimeout(() => (saveStatus.hidden = true), 2500);
-  }
-
-  function openAdmin() {
-    overlay.hidden = false;
-    document.body.style.overflow = "hidden";
-    if (isAuth()) showDashboard();
-    else {
-      loginView.hidden = false;
-      dashView.hidden = true;
-      loginError.hidden = true;
-      document.getElementById("admin-password").value = "";
     }
-  }
-  function closeAdmin() {
-    overlay.hidden = true;
-    document.body.style.overflow = "";
-    pendingImage = null;
-    pendingBrandImage = null;
-  }
 
-  function showDashboard() {
-    loginView.hidden = true;
-    dashView.hidden = false;
+    function applyBrandImage(url) {
+      const container = document.getElementById("poster-inner");
+      if (!container) return;
+      if (url) {
+        container.innerHTML = `<img src="${url}" alt="Enchastre.bba — imagen de marca" />`;
+      } else {
+        container.innerHTML = `
+          <div class="poster-placeholder">
+            <span>Área para imagen de marca</span>
+            <small>Reemplazá este espacio más adelante</small>
+          </div>`;
+      }
+    }
 
-    document.getElementById("cfg-instagram").value = loadConfig().instagram;
+    function updateContactButtons(instagram) {
+      const href = buildInstagramUrl(instagram);
+      document.querySelectorAll("[data-contact]").forEach((el) => {
+        el.setAttribute("href", href);
+        if (href.startsWith("http")) {
+          el.setAttribute("target", "_blank");
+          el.setAttribute("rel", "noopener noreferrer");
+        } else {
+          el.removeAttribute("target");
+          el.removeAttribute("rel");
+        }
+      });
+    }
 
-    const currentBrand = loadBrandImage();
-    if (currentBrand) {
-      brandPreview.src = currentBrand;
-      brandPreview.hidden = false;
-      brandPlaceholder.hidden = true;
+    function renderCatalog(products, btnText, instagram) {
+      const grid = document.getElementById("product-grid");
+      if (!grid) return;
+      const href = buildInstagramUrl(instagram);
+      const list = Array.isArray(products) ? products : (products.products || []);
+
+      grid.innerHTML = list.map((p) => {
+        const photo = p.image
+          ? `<img src="${p.image}" alt="${p.alt || p.name + ' — Enchastre.bba'}" loading="lazy" />`
+          : `<span class="photo-placeholder">Agregar fotografía</span>`;
+        return `
+          <article class="product-card" data-id="${p.id}">
+            <div class="product-photo">${photo}</div>
+            <div class="product-info">
+              <h3 class="product-name">${p.name}</h3>
+              <p class="product-price">${formatPrice(p.price)}</p>
+            </div>
+            <div class="product-action">
+              <a href="${href}" class="btn btn-mint" data-contact ${href.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${btnText}</a>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    async function loadSite() {
+      try {
+        const [siteRes, productsRes] = await Promise.all([
+          fetch("/data/site.json?t=" + Date.now()),
+          fetch("/data/products.json?t=" + Date.now())
+        ]);
+
+        if (!siteRes.ok || !productsRes.ok) {
+          throw new Error("No se pudieron cargar los datos");
+        }
+
+        const site = await siteRes.json();
+        const productsData = await productsRes.json();
+
+        applyTexts(site.texts || {});
+        applyColors(site.colors || {});
+        applyFonts(site.fonts || {});
+        applyBrandImage(site.brandImage || "");
+        updateContactButtons(site.instagram || "");
+        renderCatalog(
+          productsData,
+          (site.texts && site.texts.btnContact) || "Consultá por Instagram",
+          site.instagram || ""
+        );
+      } catch (err) {
+        console.error("Error cargando contenido:", err);
+        // Fallback: dejar los textos por defecto que ya están en el HTML
+        document.getElementById("product-grid").innerHTML =
+          '<p class="loading-msg">No se pudo cargar el catálogo. Recargá la página.</p>';
+      }
+    }
+
+    // Iniciar
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadSite);
     } else {
-      brandPreview.hidden = true;
-      brandPreview.removeAttribute("src");
-      brandPlaceholder.hidden = false;
+      loadSite();
     }
-    pendingBrandImage = null;
-    brandImageInput.value = "";
-
-    const texts = loadTexts();
-    Object.keys(DEFAULT_TEXTS).forEach((k) => {
-      const el = document.getElementById("txt-" + k);
-      if (el) el.value = texts[k] || "";
-    });
-
-    const colors = loadColors();
-    document.getElementById("clr-violet").value = colors.violet;
-    document.getElementById("clr-orange").value = colors.orange;
-    document.getElementById("clr-mint").value = colors.mint;
-    document.getElementById("clr-cream").value = colors.cream;
-    document.getElementById("clr-black").value = colors.black;
-
-    populateSelect();
-    if (currentProducts.length) {
-      productSelect.value = currentProducts[0].id;
-      selectProduct(currentProducts[0].id);
-    }
-  }
-
-  function populateSelect() {
-    productSelect.innerHTML = currentProducts
-      .map((p) => `<option value="${p.id}">${p.name}</option>`).join("");
-  }
-
-  function selectProduct(id) {
-    selectedId = id;
-    const p = currentProducts.find((x) => x.id === id);
-    if (!p) return;
-    editName.value = p.name;
-    editPrice.value = p.price;
-    pendingImage = null;
-    if (p.image) {
-      imagePreview.src = p.image;
-      imagePreview.hidden = false;
-      previewPlaceholder.hidden = true;
-    } else {
-      imagePreview.hidden = true;
-      imagePreview.removeAttribute("src");
-      previewPlaceholder.hidden = false;
-    }
-  }
-
-  // Tabs
-  document.querySelectorAll(".tab-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
-      document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
-    });
-  });
-
-  // Events
-  document.getElementById("admin-trigger").addEventListener("click", openAdmin);
-  document.getElementById("admin-close").addEventListener("click", closeAdmin);
-  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeAdmin(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !overlay.hidden) closeAdmin(); });
-
-  document.getElementById("login-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const pwd = document.getElementById("admin-password").value;
-    if (pwd === window.ENCHASTRE_CONFIG.adminPassword) {
-      setAuth(true);
-      showDashboard();
-    } else {
-      loginError.hidden = false;
-    }
-  });
-
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    setAuth(false);
-    closeAdmin();
-  });
-
-  // Save Instagram
-  document.getElementById("save-config").addEventListener("click", () => {
-    const cfg = { instagram: document.getElementById("cfg-instagram").value.trim() };
-    save(STORAGE.config, cfg);
-    updateContactButtons();
-    renderCatalog();
-    showStatus("Instagram guardado.");
-  });
-
-  // Brand image
-  brandImageInput.addEventListener("change", () => {
-    const file = brandImageInput.files[0];
-    if (!file || !file.type.startsWith("image/")) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      pendingBrandImage = reader.result;
-      brandPreview.src = pendingBrandImage;
-      brandPreview.hidden = false;
-      brandPlaceholder.hidden = true;
-    };
-    reader.readAsDataURL(file);
-  });
-
-  document.getElementById("save-brand").addEventListener("click", () => {
-    if (pendingBrandImage) {
-      saveRaw(STORAGE.brand, pendingBrandImage);
-      applyBrandImage();
-      showStatus("Imagen de marca guardada.");
-    } else {
-      showStatus("Seleccioná una imagen primero.");
-    }
-  });
-
-  document.getElementById("remove-brand").addEventListener("click", () => {
-    pendingBrandImage = null;
-    saveRaw(STORAGE.brand, null);
-    brandPreview.hidden = true;
-    brandPreview.removeAttribute("src");
-    brandPlaceholder.hidden = false;
-    brandImageInput.value = "";
-    applyBrandImage();
-    showStatus("Imagen de marca eliminada.");
-  });
-
-  // Save texts
-  document.getElementById("save-texts").addEventListener("click", () => {
-    const texts = {};
-    Object.keys(DEFAULT_TEXTS).forEach((k) => {
-      const el = document.getElementById("txt-" + k);
-      if (el) texts[k] = el.value.trim();
-    });
-    save(STORAGE.texts, texts);
-    applyTexts(loadTexts());
-    renderCatalog();
-    showStatus("Textos guardados.");
-  });
-
-  // Save colors
-  document.getElementById("save-colors").addEventListener("click", () => {
-    const colors = {
-      violet: document.getElementById("clr-violet").value,
-      orange: document.getElementById("clr-orange").value,
-      mint: document.getElementById("clr-mint").value,
-      cream: document.getElementById("clr-cream").value,
-      black: document.getElementById("clr-black").value
-    };
-    save(STORAGE.colors, colors);
-    applyColors(colors);
-    showStatus("Colores guardados.");
-  });
-
-  document.getElementById("reset-colors").addEventListener("click", () => {
-    save(STORAGE.colors, DEFAULT_COLORS);
-    applyColors(DEFAULT_COLORS);
-    document.getElementById("clr-violet").value = DEFAULT_COLORS.violet;
-    document.getElementById("clr-orange").value = DEFAULT_COLORS.orange;
-    document.getElementById("clr-mint").value = DEFAULT_COLORS.mint;
-    document.getElementById("clr-cream").value = DEFAULT_COLORS.cream;
-    document.getElementById("clr-black").value = DEFAULT_COLORS.black;
-    showStatus("Colores restaurados.");
-  });
-
-  // Products
-  productSelect.addEventListener("change", () => selectProduct(productSelect.value));
-
-  editImage.addEventListener("change", () => {
-    const file = editImage.files[0];
-    if (!file || !file.type.startsWith("image/")) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      pendingImage = reader.result;
-      imagePreview.src = pendingImage;
-      imagePreview.hidden = false;
-      previewPlaceholder.hidden = true;
-    };
-    reader.readAsDataURL(file);
-  });
-
-  document.getElementById("remove-image").addEventListener("click", () => {
-    pendingImage = "";
-    imagePreview.hidden = true;
-    imagePreview.removeAttribute("src");
-    previewPlaceholder.hidden = false;
-    editImage.value = "";
-  });
-
-  document.getElementById("save-product").addEventListener("click", () => {
-    if (!selectedId) return;
-    const idx = currentProducts.findIndex((p) => p.id === selectedId);
-    if (idx === -1) return;
-
-    currentProducts[idx].name = editName.value.trim() || currentProducts[idx].name;
-    currentProducts[idx].price = editPrice.value.replace(/\D/g, "") || currentProducts[idx].price;
-    if (pendingImage === "") delete currentProducts[idx].image;
-    else if (pendingImage) currentProducts[idx].image = pendingImage;
-
-    save(STORAGE.products, currentProducts);
-    renderCatalog();
-    populateSelect();
-    productSelect.value = selectedId;
-    showStatus("Producto guardado.");
-  });
-
-  // ---------- Init ----------
-  applyColors(loadColors());
-  applyTexts(loadTexts());
-  applyBrandImage();
-  renderCatalog();
-  updateContactButtons();
-})();
-
+  })();
   </script>
 </body>
 </html>
