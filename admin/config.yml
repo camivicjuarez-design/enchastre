@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: TU_CLOUD_NAME
+    api_key: TU_API_KEY
+
+publish_mode: simple
+locale: es
+
+collections:
+  - name: "settings"
+    label: "Configuración general"
+    files:
+      - name: "site"
+        label: "Textos, colores, tipografías e Instagram"
+        file: "data/site.json"
+        fields:
+          - label: "Instagram"
+            name: "instagram"
+            widget: "string"
+            required: false
+            hint: "Usuario (enchastre.bba) o URL completa"
+
+          - label: "Textos del sitio"
+            name: "texts"
+            widget: "object"
+            fields:
+              - { label: "Marca superior", name: "brandMark", widget: "string" }
+              - { label: "Etiqueta hero", name: "heroLabel", widget: "string" }
+              - { label: "Título principal", name: "heroTitle", widget: "string" }
+              - { label: "Eslogan", name: "heroTagline", widget: "string" }
+              - { label: "Botón de contacto", name: "btnContact", widget: "string" }
+              - { label: "Etiqueta identidad", name: "identityLabel", widget: "string" }
+              - { label: "Título identidad", name: "identityHeading", widget: "string" }
+              - { label: "Texto panel naranja", name: "identityText", widget: "text" }
+              - { label: "Título catálogo", name: "catalogTitle", widget: "string" }
+              - { label: "Texto de cierre", name: "closingText", widget: "text" }
+              - { label: "Footer", name: "footerText", widget: "string" }
+
+          - label: "Colores"
+            name: "colors"
+            widget: "object"
+            fields:
+              - { label: "Azul principal", name: "violet", widget: "color", allowInput: true }
+              - { label: "Naranja", name: "orange", widget: "color", allowInput: true }
+              - { label: "Rosa / acento", name: "mint", widget: "color", allowInput: true }
+              - { label: "Crema / fondo", name: "cream", widget: "color", allowInput: true }
+              - { label: "Negro", name: "black", widget: "color", allowInput: true }
+
+          - label: "Tipografías"
+            name: "fonts"
+            widget: "object"
+            fields:
+              - label: "Títulos"
+                name: "display"
+                widget: "select"
+                options: ["Barlow Condensed", "Oswald", "Bebas Neue", "Anton", "Archivo Black"]
+              - label: "Cuerpo de texto"
+                name: "body"
+                widget: "select"
+                options: ["DM Sans", "Inter", "Poppins", "Nunito Sans", "Work Sans"]
+
+          - label: "Imagen de marca (póster)"
+            name: "brandImage"
+            widget: "image"
+            required: false
+
+  - name: "products"
+    label: "Productos"
+    files:
+      - name: "products"
+        label: "Catálogo de productos"
+        file: "data/products.json"
+        fields:
+          - label: "Productos"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.name}} — ${{fields.price}}"
+            fields:
+              - { label: "ID (no cambiar)", name: "id", widget: "string", required: true }
+              - { label: "Nombre", name: "name", widget: "string", required: true }
+              - { label: "Precio (solo números)", name: "price", widget: "string", required: true }
+              - { label: "Fotografía", name: "image", widget: "image", required: false }
+              - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
